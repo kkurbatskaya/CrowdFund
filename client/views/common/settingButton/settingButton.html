@@ -1,0 +1,16 @@
+<template name="settingButton">
+
+    <input id="settings-btn" type="checkbox" class="settings-btn">
+    <label for="settings-btn" class="settings-box-element"><i class="fa fa-2x fa-gear"></i></label>
+    <div class="buttons-wrapper settings-box-element"></div>
+
+    <input id="light-layout" class="light-layout" type="radio" name="layout" onclick="$(body).css('background', 'white')">
+    <label for="light-layout" class="layout-buttons settings-box-element light-bg-lang">Light Background</label>
+
+    <input id="dark-layout" class="dark-layout" type="radio" name="layout" onclick="$(body).css('background', '#828282')">
+    <label for="dark-layout" class="layout-buttons settings-box-element dark-bg-lang">Dark Background</label>
+
+    <input id="ginger-layout" class="ginger-layout" type="radio" name="layout" onclick="$(body).css('background', '#ec9626')">
+    <label for="ginger-layout" class="layout-buttons settings-box-element ginger-bg-lang">Ginger Background</label>
+
+</template>

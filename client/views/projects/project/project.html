@@ -1,5 +1,4 @@
 <template name="project">
-
   <div class="col-md-4">
     <div class="crowdfund animated fadeIn">
       <div class="thumbnail" style="padding: 0">
@@ -9,10 +8,19 @@
           </a>
         </div>
         <div class="caption">
-          <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
-          <p>by <a href="/{{ownerName}}">{{ownerName}}</a></p>
-          <p>{{blurb}}</p>
+          <div class="row">
+            <div class="col-sm-8">
+            <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
+              <p class="blurb">{{blurb}}</p>
+              <p>by <a href="/{{ownerName}}">{{ownerName}}</a></p>
+              <p>{{>starsRating class="js-rate-project" id=_id mutable=true}}</p>
+            </div>
+            <div class="col-sm-4">
+              <p>  {{> actionBar}} </p>
+            </div>
+          </div>
         </div>
+
         <div class="modal-footer" style="text-align: left">
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="{{funded}}" aria-valuemin="0" aria-valuemax="100" style="width: {{funded}}%;">

@@ -19,7 +19,7 @@ Template.portal.helpers({
 Template.portal.events({
   'click #home-logo': function () {
     Router.go('/');
-    document.title = "Spark";
+    document.title = "CrowdFund";
   },
   'click #register': function () {
     var username = document.getElementById('username').value.trim();
@@ -60,10 +60,7 @@ Template.portal.events({
     else {
       Accounts.createUser({username: username, email: email, password : password}, function (err) {
         if (err) {
-          // Inform the user that account creation failed
         } else {
-          // Success. Account has been created and the user
-          // has logged in successfully. 
           Router.go('/');
         }
 
@@ -73,7 +70,6 @@ Template.portal.events({
   },
 
   'click #signin': function () {
-    // key can be email or username
     var key = document.getElementById('key').value.trim(); 
     var password = document.getElementById('password').value.trim();
 
@@ -98,7 +94,6 @@ Template.portal.events({
       if (error) {
         bootbox.alert('Bad username or bad password.');
       } else {
-        // User logged in
         Router.go('/');
       }
     });
@@ -140,19 +135,19 @@ Template.portal.events({
     Session.set('register', true);
     Session.set('signin', false);
     Session.set('forgot', false);
-    document.title = "Register | Spark";
+    document.title = "Register | CrowdFund";
   },
   'click #signin-link': function () {
     Session.set('register', false);
     Session.set('signin', true);
     Session.set('forgot', false);
-    document.title = "Sign in | Spark";
+    document.title = "Sign in | CrowdFund";
   },
   'click #forgot-link': function () {
     Session.set('register', false);
     Session.set('signin', false);
     Session.set('forgot', true);
-    document.title = "Password Recovery | Spark";
+    document.title = "Password Recovery | CrowdFund";
   }
 });
 

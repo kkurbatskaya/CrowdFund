@@ -1,57 +1,61 @@
 <template name="nav">
 
   <head>
-    <title>Spark</title>
+    <title>CrowdFund</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
     <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="language.js" type="text/javascript"></script>
   </head>
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="delta">
+        <div class='lang'>
+          <div class='handle'>
+            <div class='eng' id="lang">EN</div>
+          </div>
+        </div>
+
         <div class="navbar-header" >
-          <button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Spark</a>
+          <!--<button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+          <!--</button>-->
+          <a class="navbar-brand" href="/">CrowdFund</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
           <ul class="nav navbar-nav" >
-            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
-            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-          </ul>
-          <!-- <input class="navbar-left search-query" placeholder="Search"> -->
+             <li><a href="{{pathFor 'projects'}}" class="projects-lang">Projects</a></li>
+           </ul>
+            <!--<input class="navbar-left search-query" placeholder="Search">-->
+
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-            <li><a role="presentation" class="nav-link dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> New <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/newidea">Idea</a></li>
-                <li><a href="/newproject">Project</a></li>
-              </ul>
-            </a></li>
+            <ul class="nav navbar-nav" >
+              <li><a href="{{pathFor 'newproject'}}" class="new-proj-lang">New Project</a></li>
+            </ul>
             <li>
               <a role="presentation" class="nav-link dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> {{username}} <span class="caret"></span></a>
               <ul id="profile-dropdown-menu" class="dropdown-menu">
-                <li><a id="profile" href="/{{username}}">Profile</a></li>
-                <li><a id="settings" href="/settings">Settings</a></li>
+                <li><a id="profile" href="/{{username}}" class="profile-lang">Profile</a></li>
+                <li><a id="settings" href="/settings" class="settings-lang">Settings</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a id="signout" href="#">Sign out</a></li>
+                <li><a id="signout" href="#" class="sign-out-lang">Sign out</a></li>
               </ul>
             </a></li>
             {{else}}
-            <li><a id="portal" href="/portal">Login/Register</a></li>
+            <li><a id="portal" href="/portal" class="login-lang">Login/Register</a></li>
             {{/if}}
           </ul>
         </div>
       </div>
     </div>
   </nav>
+  {{> settingButton}}
 </template>

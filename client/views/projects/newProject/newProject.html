@@ -6,30 +6,29 @@
       <div class="col-sm-12">
         <form class="addProjectForm" id="form">
           <div class="animated fadeIn">
-            <h1>New Project</h1>
-            <label>Title</label>
+            <h1 class="new-project-lang">New Project </h1>
+            <label class="title-lang">Title</label>
             <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
-            <label>Blurb</label>
+            <label class="blurb-lang">Blurb</label>
             <h1 style="margin-top: 0px"><small><input class="editable" id="blurb"></small></h1>
-            <label>Project Image</label>
+            <label class="proj-img-lang">Project Image</label>
             <input class="editable" id="image">
-            <label>Details</label>
+            <label class="details-lang">Details</label>
             <textarea class="editable" id="details" rows="6"></textarea>
-            <label>Permalink</label>
-            <span id="helpBlock" class="help-block">spark-app.meteor.com/projects/<b><span id="liveEdit">your-unique-project-address</span></b></span>
+            <label class="permal-lang">Permalink</label>
             <input class="editable" id="slug">
-            <label>Tags</label>
+            <label class="tags-lang">Tags</label>
             <input class="editable" id="tags">
-            <label>Funding Goal</label>
+            <label class="funding-goal-lang">Funding Goal</label>
             <input class="editable" id="goal">  
-            <label>Duration</label>
-            <input class="editable" id="duration">
-            <label>Location</label>
-            <input class="editable" id="location">   
-            <label>Rewards</label>
-            <textarea class="editable" rows="6" id="rewards"></textarea> 
+            <label class="duration-lang">Duration</label>
+            <input class="editable" id="duration" type="date" value="2017-09-25">
+            <label class="location-lang">Location</label>
+            <input class="editable" id="location">
+            <label class="rewards-lang">Rewards</label>
+            <textarea class="editable" rows="6" id="rewards"></textarea>
           </div>
-          <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
+          <input id="submit" type="submit" value="Create" class="btn btn-lg btn-primary create-proj-lang">
         </form>
       </div>
     </div>

@@ -21,6 +21,5 @@ Meteor.publish('usersList', function () {
     joinDate: 1,
     avatar: 1,
     points: 1,
-    followers: 1,
   }});
 });

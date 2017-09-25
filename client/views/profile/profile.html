@@ -12,13 +12,8 @@
 						<h3>{{username}}</h3>
 						<hr>
 						<p><b>{{points}}</b> points</p>
-						<p><b>{{followers}}</b> followers</p>
 						<p>Joined {{joinDate}} </p>
 						<hr>
-						<h3>Ideas</h3>
-						{{#each userIdeas}}
-						{{>userIdea}}
-						{{/each}}
 						<h3>Projects</h3>
 						{{#each userProjects}}
 						{{>userProject}}
@@ -46,7 +41,7 @@
 	{{>nav}}
 	{{#if currentUser}}
 	<div class="container animated fadeIn">
-		<center><h2>Settings</h2></center>
+		<center><h2 class="sett">Settings</h2></center>
 		<br>
 		<div class="col-md-3">
 			&nbsp;
@@ -54,7 +49,7 @@
 		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<center><h3>Change password</h3>
+					<center><h3 class="change-pass-lang">Change password</h3>
 						<hr>
 						<div class="form-group">
 							<input id="current-password" type="password" class="form-control" placeholder="Current password">
@@ -63,7 +58,7 @@
 							<input id="new-password" type="password" class="form-control" placeholder="New password">
 						</div>
 						<div class="form-group">
-							<a id="change-password" href="#" class="btn btn-default">Update password</a>
+							<a id="change-password" href="#" class="btn btn-default update-pass-lang">Update password</a>
 						</div>
 						<br>
 						<h3>Avatar</h3>
@@ -75,7 +70,7 @@
 							<input id="avatar-link" type="text" class="form-control" placeholder="Link to image">
 						</div>
 						<div class="form-group">
-							<a id="change-avatar" href="#" class="btn btn-default">Update avatar</a>
+							<a id="change-avatar" href="#" class="btn btn-default update-avatar-lang">Update avatar</a>
 						</div>
 					</center>
 				</div>

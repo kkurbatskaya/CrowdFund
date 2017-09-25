@@ -1,4 +1,4 @@
-document.title = "Spark";
+document.title = "CrowdFund";
 
 Template.nav.helpers({
   username: function () {
@@ -6,23 +6,27 @@ Template.nav.helpers({
   }
 })
 
+
+
 Template.nav.events({
   'click #signout': function () {
     Meteor.logout();
     Meteor.logoutOtherClients();
     window.location = '/';
-    document.title = "Spark";
+    document.title = "CrowdFund";
   },
   'click #portal': function () {
-    document.title = 'Portal | Spark';
+    document.title = 'Portal | CrowdFund';
   },
   'click #profile': function () {
-    document.title = 'Profile | Spark';
+    document.title = 'Profile | CrowdFund';
   },
   'click #settings': function () {
-    document.title = 'Settings | Spark';
+    document.title = 'Settings | CrowdFund';
   }
 });
+
+
 
 $(window).resize(function () {
   var path = $(this);
@@ -57,3 +61,4 @@ $(document).ready(function () {
     }
   });
 });
+

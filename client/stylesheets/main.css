@@ -7,7 +7,6 @@ body {
   margin-left: 7.5px;
   padding:0;
   height:100%;
-  background-color: #f9f9f9 !important;
 }
 
 h1, 
@@ -377,6 +376,10 @@ textarea {
 
 /* sortBar */
 
+.sortBar{
+  display: inline;
+}
+
 #sort-menu{
   margin-top: 35px;
 }
@@ -434,4 +437,159 @@ textarea {
   border-width:8px;
 }
 
+* {
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
 
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.settings-box-element {
+  z-index: 10;
+}
+
+.buttons-wrapper {
+  position: fixed;
+  top: 300px;
+  right: -200px;
+  width: 200px;
+  height: 240px;
+  background: #fff;
+}
+
+.settings-btn + label {
+  position: fixed;
+  top: 300px;
+  right: 0;
+  display: block;
+  width: 35px;
+  color: #e83737;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+}
+
+.settings-btn:checked + label {
+  right: 200px;
+}
+
+.settings-btn:checked ~ .buttons-wrapper {
+  right: 0;
+}
+
+.layout-buttons {
+  display: block;
+  width: 150px;
+  padding: 10px 0;
+  text-align: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+  font-size: 0.875em;
+  cursor: pointer;
+}
+
+.settings-btn:checked ~ .layout-buttons {
+  right: 30px;
+}
+
+input[type="radio"]:checked + label {
+  background: #e83737;
+  color: #fff;
+  border-color: #e83737;
+}
+
+.light-layout + label {
+  position: fixed;
+  top: 310px;
+  right: -150px;
+}
+
+.dark-layout + label {
+  position: fixed;
+  top: 355px;
+  right: -150px;
+}
+
+.ginger-layout + label {
+  position: fixed;
+  top: 400px;
+  right: -150px;
+}
+
+.actionBar {
+  margin-top: 20px;
+}
+
+.hovered{
+  border: solid;
+}
+
+
+
+.lang {
+  float: left;
+  margin-top: 15px;
+  position: relative;
+  /*left: 500px;*/
+  /*top: 40px;*/
+  border-radius: 70px;
+  background-color: #EFF4FF;
+  box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.5), inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  width: 53px;
+  height: 26px;
+  margin-right: 16px;
+  overflow: hidden;
+  -webkit-transition: all .25s linear;
+  -moz-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.lang .handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 22px;
+  position: absolute;
+  top: 3px;
+  background: #FFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0px 4px 23px 0 rgba(0, 0, 0, 0.08), -2px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  line-height: 22px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #FFA400;
+  line-height: 24px;
+  text-align: center;
+  left: 5px;
+  -webkit-transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+  -moz-transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+  -o-transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+  transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+}
+.lang .handle:before {
+  -webkit-font-smoothing: antialiased;
+}
+.lang .handle:after {
+  content: "ON";
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFF;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: -22px;
+}
+
+.lang.rus .handle {
+  left: 29px;
+  color: #FFA400;
+}

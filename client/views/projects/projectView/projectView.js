@@ -31,7 +31,14 @@ Template.projectView.events({
       }
     }
     );
-  }
+  },
+    "click .js-rate-project" : function (event) {
+        var rating = $(event.currentTarget).data('userrating');
+        console.log(rating);
+        var image_id = this.id;
+        console.log(image_id);
+        Projects.update({_id: image_id}, { $set: { rating: rating }});
+    },
 });
 
 Template.projectView.helpers({

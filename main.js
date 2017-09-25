@@ -37,9 +37,9 @@ Meteor.methods({
       downvotedUsers: []
     });
     if (Meteor.isClient) {
-      Router.go('ideas'); 
-      bootbox.alert("Idea created!"); 
-    } 
+      Router.go('ideas');
+      bootbox.alert("Idea created!");
+    }
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     Projects.insert({
@@ -50,7 +50,7 @@ Meteor.methods({
       details: details,
       tags: tags,
       goal: goal,
-      duration: duration,
+      duration: moment(duration).diff(moment(), 'days'),
       location: location, 
       rewards: rewards,
       count: 0,
@@ -73,7 +73,6 @@ Meteor.methods({
   editIdea: function (ideaId, title, details, slug, tags) {
     var idea = Ideas.findOne(ideaId);
     if (idea.ownerId !== Meteor.userId()) {
-      // Make sure only the owner can edit it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -93,7 +92,6 @@ Meteor.methods({
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     var project = Projects.findOne(projectId);
     if (project.ownerId !== Meteor.userId()) {
-      // Make sure only the owner can edit it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -118,21 +116,19 @@ Meteor.methods({
   deleteIdea: function (ideaId) {
     var idea = Ideas.findOne(ideaId);
     if (idea.ownerId !== Meteor.userId()) {
-      // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
     else {
       Ideas.remove(ideaId);
       if (Meteor.isClient) {
         Router.go('ideas');
-        bootbox.alert("Idea deleted!");  
+        bootbox.alert("Idea deleted!");
       }
     }
   },
   deleteProject: function (projectId) {
     var project = Projects.findOne(projectId);
     if (project.ownerId !== Meteor.userId()) {
-      // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -158,7 +154,7 @@ Meteor.methods({
     }
     else {
       bootbox.alert('You must be signed in to do that.');
-    } 
+    }
   },
   addProjectComment: function (projectId, parent, text) {
     if (Meteor.user()) {
@@ -180,7 +176,6 @@ Meteor.methods({
   upvoteIdea: function (ideaId) {
     var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't upvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -193,7 +188,6 @@ Meteor.methods({
   upvoteProject: function (projectId) {
     var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't upvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -206,7 +200,6 @@ Meteor.methods({
   downvoteIdea: function (ideaId) {
     var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't downvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
@@ -219,7 +212,6 @@ Meteor.methods({
   downvoteProject: function (projectId) {
     var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't downvote it
       throw new Meteor.Error("not-authorized");
     }
     else {

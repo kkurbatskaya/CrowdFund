@@ -13,7 +13,14 @@ Template.project.events({
   },
   "click .fa-chevron-down": function () {
     Meteor.call("downvoteProject", this._id);
-  }
+  },
+    "click .js-rate-project" : function (event) {
+        var rating = $(event.currentTarget).data('userrating');
+        console.log(rating);
+        var image_id = this.id;
+        console.log(image_id);
+        Projects.update({_id: image_id}, { $set: { rating: rating }});
+    }
 });
 
 Template.project.helpers({
@@ -23,17 +30,4 @@ Template.project.helpers({
   submittedAgo: function() {
     return moment(this.createTimeActual, moment.ISO_8601).fromNow();
   }
-});
-
-Template.project.onRendered( function () {
-
-  $('.crowdfund').hover(
-    function () {
-      $(this).stop().animate({marginTop: '-5'}, 100, 'linear');
-    }, 
-    function () {
-      $(this).stop().animate({marginTop: '0'}, 100, 'linear');
-    }
-    );
-
 });
